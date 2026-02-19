@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread Anchor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Thread Anchor</h1>
+      <p class="tagline">Ahoy! Never lose the thread.</p>
+    </header>
+
+    <main class="settings">
+      <section class="setting-group">
+        <div class="setting-row">
+          <label class="setting-label" for="stickyAncestors">
+            <span class="label-text">Sticky ancestors</span>
+            <span class="label-desc">Pin ancestor comments at the top</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="stickyAncestors">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row sub-setting" id="depthRow">
+          <label class="setting-label" for="stickyDepth">
+            <span class="label-text">Pinned rows</span>
+            <span class="label-desc">Number of ancestor rows to show</span>
+          </label>
+          <div class="range-container">
+            <input type="range" id="stickyDepth" min="1" max="30" step="1" class="range-input">
+            <span class="range-value" id="depthValue">20</span>
+          </div>
+        </div>
+
+        <div class="setting-row sub-setting" id="compactRow">
+          <label class="setting-label" for="stickyCompact">
+            <span class="label-text">Compact mode</span>
+            <span class="label-desc">Use single-line rows</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="stickyCompact">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row sub-setting" id="themeRow">
+          <label class="setting-label" for="stickyTheme">
+            <span class="label-text">Color theme</span>
+            <span class="label-desc">Appearance of sticky header</span>
+          </label>
+          <select id="stickyTheme" class="select-input">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="auto">Auto</option>
+            <option value="manual">Manual</option>
+          </select>
+        </div>
+
+        <!-- Manual color settings -->
+        <div class="setting-row sub-setting manual-colors" id="manualColorsRow">
+          <div class="color-grid">
+            <div class="color-item">
+              <label for="colorBg">Background</label>
+              <input type="color" id="colorBg" value="#1e3a5f">
+            </div>
+            <div class="color-item">
+              <label for="colorText">Text</label>
+              <input type="color" id="colorText" value="#e8f1f5">
+            </div>
+            <div class="color-item">
+              <label for="colorAccent">Accent</label>
+              <input type="color" id="colorAccent" value="#4ecdc4">
+            </div>
+            <div class="color-item">
+              <label for="colorAuthor">Author</label>
+              <input type="color" id="colorAuthor" value="#7fdbda">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="status" id="status"></span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

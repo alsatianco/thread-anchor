@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Thread Anchor",
+  "description": "Ahoy! Never lose the thread. Pin ancestor chains on old Reddit.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    },
+    "default_title": "Thread Anchor"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://old.reddit.com/r/*/comments/*",
+        "https://www.reddit.com/r/*/comments/*",
+        "https://new.reddit.com/r/*/comments/*",
+        "https://reddit.com/r/*/comments/*"
+      ],
+      "js": [
+        "src/content/selectors.js",
+        "src/content/util.js",
+        "src/content/ancestors.js",
+        "src/content/activeComment.js",
+        "src/content/stickyUI.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
